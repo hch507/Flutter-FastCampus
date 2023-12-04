@@ -41,7 +41,7 @@ class _InstagramHomeState extends State<InstagramHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: index == 0 ?AppBar(
         title: Text(
           "Instagram",
           style: GoogleFonts.lobsterTwo(fontSize: 32),
@@ -60,7 +60,7 @@ class _InstagramHomeState extends State<InstagramHome> {
             },
           ),
         ],
-      ),
+      ): null,
       body: InstaBody(index: index),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: index,
@@ -71,8 +71,7 @@ class _InstagramHomeState extends State<InstagramHome> {
         ),
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home, size: 20), label: "홈"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.search, size: 20), label: "검색")
+          BottomNavigationBarItem(icon: Icon(Icons.search, size: 20), label: "검색"),
         ],
       ),
     );
