@@ -13,19 +13,19 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.grey,
-        colorScheme: const ColorScheme.dark(
-          primary: Colors.black,
-          secondary: Colors.white,
-        ),
+        useMaterial3: false,
+        colorScheme:ColorScheme.dark(),
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          backgroundColor: Colors.grey,
             unselectedIconTheme: IconThemeData(color: Colors.white),
-            showSelectedLabels: false,
-            showUnselectedLabels: true,
+            showUnselectedLabels : true,
+            showSelectedLabels: true,
             selectedItemColor: Colors.white),
       ),
       home: Scaffold(
-
+          appBar: AppBar(
+            title: Text("toss"),
+          ),
           bottomNavigationBar: _buildBottomNavigationBar()),
     );
   }
@@ -41,7 +41,8 @@ class _MainScreenState extends State<MainScreen> {
           topRight: Radius.circular(30),
         ),
         child: BottomNavigationBar(
-          backgroundColor: Colors.black26,
+          showUnselectedLabels: true,
+          backgroundColor: Colors.grey,
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "홈"),
             BottomNavigationBarItem(icon: Icon(Icons.star), label: "헤택"),
