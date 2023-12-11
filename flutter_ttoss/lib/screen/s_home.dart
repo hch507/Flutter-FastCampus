@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ttoss/screen/home/f_home.dart';
+
+import '../common/constant/app_colors.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -13,24 +16,31 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        useMaterial3: false,
-        colorScheme:ColorScheme.dark(),
+        useMaterial3: true,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        // brightness: Brightness.dark,
+        scaffoldBackgroundColor: Colors.black,
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Color(0xff26ff8c), brightness: Brightness.dark),
+
+        // scaffoldBackgroundColor: AppColors.veryDarkGrey,
+        // colorScheme: ColorScheme.dark(),
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: Colors.grey,
-            unselectedIconTheme: IconThemeData(color: Colors.white),
             showUnselectedLabels : true,
             showSelectedLabels: true,
             selectedItemColor: Colors.white),
       ),
       home: Scaffold(
-          appBar: AppBar(
-            title: Text("toss"),
+
+          body: SafeArea(
+            child: HomeFragment(),
           ),
           bottomNavigationBar: _buildBottomNavigationBar()),
     );
   }
 
   Widget _buildBottomNavigationBar() {
+    
     return Container(
       decoration: BoxDecoration(boxShadow: [
         BoxShadow(color: Colors.black26, blurRadius: 10, spreadRadius: 0)
@@ -41,8 +51,11 @@ class _MainScreenState extends State<MainScreen> {
           topRight: Radius.circular(30),
         ),
         child: BottomNavigationBar(
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white,
+          showSelectedLabels: true,
           showUnselectedLabels: true,
-          backgroundColor: Colors.grey,
+          type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "홈"),
             BottomNavigationBarItem(icon: Icon(Icons.star), label: "헤택"),
