@@ -21,33 +21,37 @@ class _HomeFragmentState extends State<HomeFragment> {
       color: Colors.black,
       child: Stack(
         children: [
-          SingleChildScrollView(
-            padding: EdgeInsets.only(top: 60),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 10,
-                ),
-                BigButton(
-                  "토스뱅크",
-                  onTab: () {
-                    SnackBar(content: Text("토스 뱅크 클링"));
-                  },
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                RoundedContainer(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      "자산".text.bold.white.make(),
-                      ...bankAccounts.map((e) => BankAccountWidget(e)).toList()
-                    ],
+          RefreshIndicator(
+            edgeOffset: TtossAppBar.height,
+            onRefresh: () async{ print("data refresh"); },
+            child: SingleChildScrollView(
+              padding: EdgeInsets.only(top: TtossAppBar.height, bottom: 50),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 10,
                   ),
-                ),
-              ],
-            ).pSymmetric(h: 20),
+                  BigButton(
+                    "토스뱅크",
+                    onTab: () {
+                      SnackBar(content: Text("토스 뱅크 클링"));
+                    },
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  RoundedContainer(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        "자산".text.bold.white.make(),
+                        ...bankAccounts.map((e) => BankAccountWidget(e)).toList()
+                      ],
+                    ),
+                  ),
+                ],
+              ).pSymmetric(h: 20),
+            ),
           ),
           TtossAppBar()
         ],

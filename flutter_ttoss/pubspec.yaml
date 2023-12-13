@@ -65,13 +65,9 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
-  - assets/images/icon/toss.png
-  - assets/images/icon/map_point.png
-  - assets/images/icon/notification.png
-  - assets/images/bank/bank_kakao.png
-  - assets/images/bank/bank_toss.png
-  - assets/images/bank/bank_shinhan.png
-  - assets/images/bank/bank_investment.png
+  - assets/images/icon/
+  - assets/images/bank/
+  - assets/images/notification/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
