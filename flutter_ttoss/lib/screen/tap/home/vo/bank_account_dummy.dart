@@ -1,5 +1,5 @@
-import 'package:flutter_ttoss/screen/home/vo/banks_dummy.dart';
-import 'package:flutter_ttoss/screen/home/vo/vo_bank_account.dart';
+import 'package:flutter_ttoss/screen/tap/home/vo/banks_dummy.dart';
+import 'package:flutter_ttoss/screen/tap/home/vo/vo_bank_account.dart';
 
 final bankAccountShinhan =
     BankAccount(bankShinhan, 30000000, accountTypeName: "우대통장");

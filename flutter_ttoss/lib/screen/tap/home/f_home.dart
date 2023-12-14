@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ttoss/screen/home/vo/bank_account_dummy.dart';
-import 'package:flutter_ttoss/screen/home/w_bank_account_widget.dart';
+import 'package:flutter_ttoss/screen/tap/home/vo/bank_account_dummy.dart';
+import 'package:flutter_ttoss/screen/tap/home/w_bank_account_widget.dart';
 
-import 'package:flutter_ttoss/screen/home/w_ttoss_app_bar.dart';
+import 'package:flutter_ttoss/screen/tap/home/w_ttoss_app_bar.dart';
 import 'package:flutter_ttoss/widget/w_big_button.dart';
 import 'package:flutter_ttoss/widget/w_rounded_container.dart';
 import 'package:velocity_x/velocity_x.dart';

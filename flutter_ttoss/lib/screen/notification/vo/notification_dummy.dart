@@ -22,6 +22,7 @@ final notificationDummies = <TossNotification>[
     NotificationType.moneyTip,
     "유럽 식품 물가가 치솟고 있어요 \n남반석님, 유럽여행에 관심이 있다면 확인해보세요",
     DateTime.now().subtract(8.hours),
+    isRead: true
   ),
   TossNotification(
     NotificationType.walk,
@@ -32,6 +33,7 @@ final notificationDummies = <TossNotification>[
     NotificationType.luck,
     "행운 복권이 도착했습니다",
     DateTime.now().subtract(12.hours),
+    isRead: true
   ),
   TossNotification(
     NotificationType.people,
