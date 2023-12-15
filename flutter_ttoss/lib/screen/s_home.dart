@@ -31,7 +31,6 @@ class _MainScreenState extends State<MainScreen> {
             selectedItemColor: Colors.white),
       ),
       home: Scaffold(
-
           body: SafeArea(
             child: HomeFragment(),
           ),
