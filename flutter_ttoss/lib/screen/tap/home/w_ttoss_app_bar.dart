@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ttoss/common/constant/app_colors.dart';
 import 'package:flutter_ttoss/common/constants.dart';
-import 'package:flutter_ttoss/screen/home/f_home.dart';
+import 'package:flutter_ttoss/screen/tap/home/f_home.dart';
 import 'package:flutter_ttoss/screen/notification/s_notification.dart';
 import 'package:flutter_ttoss/widget/w_tap.dart';
 

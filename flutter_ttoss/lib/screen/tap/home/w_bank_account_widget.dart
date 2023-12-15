@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ttoss/screen/home/vo/vo_bank_account.dart';
+import 'package:flutter_ttoss/screen/tap/home/vo/vo_bank_account.dart';
 import 'package:flutter_ttoss/widget/w_rounded_container.dart';
 import 'package:velocity_x/velocity_x.dart';
 

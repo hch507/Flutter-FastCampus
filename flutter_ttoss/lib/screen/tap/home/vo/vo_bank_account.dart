@@ -1,4 +1,4 @@
-import 'package:flutter_ttoss/screen/home/vo/vo_bank.dart';
+import 'package:flutter_ttoss/screen/tap/home/vo/vo_bank.dart';
 
 class BankAccount {
   final Bank bank;
