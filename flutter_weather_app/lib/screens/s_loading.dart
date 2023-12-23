@@ -1,8 +1,11 @@
 
 
+import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:http/http.dart';
+import 'package:flutter_weather_app/data/my_location.dart';
+import 'package:http/http.dart' as http;
+
+import '../data/network.dart';
 
 class Loading extends StatefulWidget {
   const Loading({super.key});
@@ -12,27 +15,34 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-
+  late double latitude2;
+  late double longittude2;
   @override
   void initState() {
 
     super.initState();
     getLocation();
+    fetchData();
   }
 
   void getLocation() async {
-    try{
-      Position position = await Geolocator.getCurrentPosition(
-          desiredAccuracy: LocationAccuracy.high);
-      print('현재 위치: ${position.latitude}, ${position.longitude}');
-    }catch(e){
-      print("인터넷 연결에 문제가 생겼습니다.");
-    }
+    MyLocation myLocation = MyLocation();
 
-  void fetchData(){
-      Response reponse = get(url)
+    await myLocation.getCurrentLocation();
+    latitude2= myLocation.latitude;
+    longittude2= myLocation.longitude;
+
+    print(latitude2);
+    print(longittude2);
   }
+  void fetchData() async{
+    Network network = Network('https://samples.openweathermap.org/data/2.5/weather?q=London&appid=b1b15e88fa797225412429c1c50c122a1');
+    await network.getJsonData();
+    
+
+
   }
+
   @override
   Widget build(BuildContext context) {
     return Center(
