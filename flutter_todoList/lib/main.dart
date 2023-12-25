@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_weather_app/screens/s_loading.dart';
-const apiKey ="f06060f07a89ebe7a93f77ea25ee868a";
+import 'package:flutter_todolist/screen/s_main.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -12,12 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-
-      home: Loading(),
+      home: MainScreen(),
     );
   }
+
 }
-
-
 
