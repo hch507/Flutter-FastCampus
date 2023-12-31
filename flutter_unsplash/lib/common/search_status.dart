@@ -1,0 +1,4 @@
+enum search{
+  picture,
+  person
+}
