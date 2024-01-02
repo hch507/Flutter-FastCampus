@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_unsplash/Screen/w_unsplash_fragment.dart';
 import 'package:flutter_unsplash/common/search_status.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class SearchFragment extends StatefulWidget {
   const SearchFragment({super.key});
@@ -10,6 +13,8 @@ class SearchFragment extends StatefulWidget {
 
 class _SearchFragmentState extends State<SearchFragment> {
   search _searh = search.picture;
+  TextEditingController inputController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +31,7 @@ class _SearchFragmentState extends State<SearchFragment> {
             ),
             SizedBox(
               height: 30,
+
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -61,12 +67,13 @@ class _SearchFragmentState extends State<SearchFragment> {
                   ),
                 ),
               ),
+              controller: inputController,
             ),
             SizedBox(
               height: 20,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () { Get.to(UnsplashFragment(),arguments: inputController.text);},
               child: Text("검색"),
             )
           ],

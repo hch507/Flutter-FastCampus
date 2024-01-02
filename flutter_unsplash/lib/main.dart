@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_unsplash/Screen/s_search.dart';
+import 'package:flutter_unsplash/controller/Input_controller.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +12,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    InputController controller = Get.put(InputController());
+    return GetMaterialApp(
 
       home: SearchScreen(),
     );
