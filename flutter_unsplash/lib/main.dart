@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    InputController controller = Get.put(InputController());
+
     return GetMaterialApp(
 
       home: SearchScreen(),

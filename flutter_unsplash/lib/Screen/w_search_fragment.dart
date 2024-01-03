@@ -4,6 +4,8 @@ import 'package:flutter_unsplash/common/search_status.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../controller/Input_controller.dart';
+
 class SearchFragment extends StatefulWidget {
   const SearchFragment({super.key});
 
@@ -14,7 +16,7 @@ class SearchFragment extends StatefulWidget {
 class _SearchFragmentState extends State<SearchFragment> {
   search _searh = search.picture;
   TextEditingController inputController = TextEditingController();
-
+  InputController controller = Get.put(InputController());
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +76,7 @@ class _SearchFragmentState extends State<SearchFragment> {
             ),
             ElevatedButton(
               onPressed: () { Get.to(UnsplashFragment(),arguments: inputController.text);},
+              // onPressed: () {controller.fetcchData(inputController.text);},
               child: Text("검색"),
             )
           ],
