@@ -1,8 +1,11 @@
 
+
 import 'package:flutter/material.dart';
 import 'package:flutter_todolist/data/memory/todo_status.dart';
 import 'package:flutter_todolist/data/memory/vo/todo_data_notifier.dart';
 import 'package:flutter_todolist/data/memory/vo/vo_todo.dart';
+import 'package:flutter_todolist/screen/main/write/vo_write_to_result.dart';
+
 
 class TodoDataHolder extends InheritedWidget{
   final TodoDataNotifier notifier;
@@ -33,6 +36,13 @@ class TodoDataHolder extends InheritedWidget{
     }
     notifier.notifyListeners();
   }
+
+  void editTodo(Todo todo, WriteTodoResult result){
+    todo.title =result.text;
+    todo.dueDate=result.dateTime;
+    notifier.notifyListeners();
+  }
+
 
   
 }

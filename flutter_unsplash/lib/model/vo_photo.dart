@@ -1,8 +1,22 @@
-class Photo{
-  String? thumbnail =null;
-  String? author = null;
-  String? creatAt = null;
-  String? likeCount = null;
+class Result {
+  String id;
+  String createAt;
+  String like;
+  String thumbUrl;
 
-  Photo({required this.thumbnail,required this.author,required this.creatAt,required this.likeCount });
+  Result({
+    required this.id,
+    required this.createAt,
+    required this.like,
+    required this.thumbUrl,
+  });
+
+  factory Result.fromJson(Map<String, dynamic> json) {
+    return Result(
+      id: json['id']??' ',
+      createAt: json['created_at']??' ',
+      like: json['likes']?? ' ',
+      thumbUrl: json['urls']?['thumb']??' ',
+    );
+  }
 }

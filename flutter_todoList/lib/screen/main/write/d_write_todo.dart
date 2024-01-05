@@ -1,11 +1,13 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_todolist/data/memory/vo/vo_todo.dart';
 import 'package:flutter_todolist/screen/main/write/vo_write_to_result.dart';
 import 'package:intl/intl.dart';
 
 class WriteTodoDialog extends StatefulWidget {
-  const WriteTodoDialog({super.key});
+  final Todo? todoForEdit;
+  const WriteTodoDialog({ this.todoForEdit, super.key});
 
   @override
   State<WriteTodoDialog> createState() => _WriteTodoDialogState();
