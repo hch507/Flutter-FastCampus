@@ -1,48 +1,53 @@
-
-
-import 'package:flutter/material.dart';
+import 'package:flutter_todolist/data/local/local_db.dart';
 import 'package:flutter_todolist/data/memory/todo_status.dart';
-import 'package:flutter_todolist/data/memory/vo/todo_data_notifier.dart';
 import 'package:flutter_todolist/data/memory/vo/vo_todo.dart';
 import 'package:flutter_todolist/screen/main/write/vo_write_to_result.dart';
+import 'package:get/get.dart';
 
-
-class TodoDataHolder extends InheritedWidget{
-  final TodoDataNotifier notifier;
-  TodoDataHolder({required super.child,required this.notifier});
-
+class TodoDataHolder extends GetxController {
+  final RxList<Todo> todoList = <Todo>[].obs;
+  final Local = Localdb();
   @override
-  bool updateShouldNotify(covariant InheritedWidget oldWidget) {
+  void onInit() async {
+    final getTodoResult = await Local.getDataList();
 
-    return true;
+       todoList.addAll(getTodoResult);
+    super.onInit();
   }
-
-  static TodoDataHolder of(BuildContext context){
-    //tododataholder를 찾아 돌려줌
-    TodoDataHolder inherited =(context.dependOnInheritedWidgetOfExactType<TodoDataHolder>())!;
-    return inherited;
-  }
-
-  void changeTodoStatus(Todo todo){
-    switch(todo.status){
+  void changeTodoStatus(Todo todo) {
+    switch (todo.status) {
       case TodoStatus.incomplete:
         todo.status = TodoStatus.ongoing;
 
       case TodoStatus.complete:
-        todo.status =TodoStatus.incomplete;
+        todo.status = TodoStatus.incomplete;
 
       case TodoStatus.ongoing:
         todo.status = TodoStatus.complete;
     }
-    notifier.notifyListeners();
+    todoList.refresh();
   }
 
-  void editTodo(Todo todo, WriteTodoResult result){
-    todo.title =result.text;
-    todo.dueDate=result.dateTime;
-    notifier.notifyListeners();
+  void addTodo(WriteTodoResult result) async {
+    if (result != null) {
+      todoList.add(Todo(
+          id: DateTime.now().millisecondsSinceEpoch,
+          title: result.text,
+          dueDate: result.dateTime));
+    }
   }
 
+  void editTodo(Todo todo, WriteTodoResult result) {
+    todo.title = result.text;
+    todo.dueDate = result.dateTime;
+    todoList.refresh();
+  }
+  void removeTodo(Todo todo){
+    todoList.remove(todo);
+    todoList.refresh();
+  }
+}
 
-  
+mixin TodoDataProvider {
+  late TodoDataHolder todoData =Get.find();
 }

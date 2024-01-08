@@ -13,7 +13,7 @@ class MainScreen extends StatefulWidget {
   State<MainScreen> createState() => _MainScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _MainScreenState extends State<MainScreen> with TodoDataProvider{
   int index = 0;
 
 
@@ -31,14 +31,10 @@ class _MainScreenState extends State<MainScreen> {
           );
           print(result.text);
           print(result.dateTime);
-          setState(() {
-            TodoDataHolder.of(context).notifier.addTodo(Todo(
-                  id: DateTime.now().microsecondsSinceEpoch,
-                  title: result.text,
-                  dueDate: result.dateTime,
-                ));
-
-          });
+          todoData.addTodo(result);
+          // setState(() {
+          //   todoData.addTodo(result);
+          // });
         },
       ),
     );
@@ -75,14 +71,5 @@ class _MainScreenState extends State<MainScreen> {
       default:
         return TodoFragment();
     }
-  }
-
-  Future<void> _showDialog(BuildContext context) async {
-    return showDialog(
-      context: context,
-      builder: (_) {
-        return WriteTodoDialog();
-      },
-    );
   }
 }
