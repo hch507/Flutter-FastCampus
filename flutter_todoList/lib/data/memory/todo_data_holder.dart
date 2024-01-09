@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 
 class TodoDataHolder extends GetxController {
   final RxList<Todo> todoList = <Todo>[].obs;
-  final Local = Localdb();
+  final Local = Localdb.instance;
   @override
   void onInit() async {
     final getTodoResult = await Local.getDataList();
@@ -25,26 +25,38 @@ class TodoDataHolder extends GetxController {
       case TodoStatus.ongoing:
         todo.status = TodoStatus.complete;
     }
-    todoList.refresh();
+    updateTodo(todo);
   }
 
   void addTodo(WriteTodoResult result) async {
     if (result != null) {
-      todoList.add(Todo(
+      final newTodo = Todo(
           id: DateTime.now().millisecondsSinceEpoch,
           title: result.text,
-          dueDate: result.dateTime));
+          dueDate: result.dateTime);
+      todoList.add(newTodo);
+      Local.addTodo(newTodo);
     }
   }
 
   void editTodo(Todo todo, WriteTodoResult result) {
     todo.title = result.text;
     todo.dueDate = result.dateTime;
-    todoList.refresh();
+    updateTodo(todo);
   }
   void removeTodo(Todo todo){
     todoList.remove(todo);
+    Local.deleteTodo(todo.id);
     todoList.refresh();
+  }
+  void updateTodo(Todo todo) {
+    Local.updateTodo(todo);
+    notify(todo);
+  }
+
+  void notify(Todo todo) {
+    final index = todoList.indexOf(todo);
+    todoList[index] = todo;
   }
 }
 

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todolist/data/local/local_db.dart';
 import 'package:flutter_todolist/data/memory/todo_data_holder.dart';
 import 'package:flutter_todolist/screen/s_main.dart';
 import 'package:get/get.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Localdb.init();
   runApp(const MyApp());
 }
 
