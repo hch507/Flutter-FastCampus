@@ -1,22 +1,50 @@
 class Result {
-  String id;
-  String createAt;
-  String like;
-  String thumbUrl;
+
+  String? createAt = null;
+  String? like = null;
+  Urls urls;
+  User user;
 
   Result({
-    required this.id,
-    required this.createAt,
-    required this.like,
-    required this.thumbUrl,
+    this.createAt,
+    this.like,
+    this.urls,
+    this.user
   });
 
   factory Result.fromJson(Map<String, dynamic> json) {
     return Result(
-      id: json['id']??' ',
-      createAt: json['created_at']??' ',
-      like: json['likes']?? ' ',
-      thumbUrl: json['urls']?['thumb']??' ',
+      createAt: json['created_at'],
+      like: json['likes'],
+
+    );
+  }
+}
+
+class Urls {
+  String? thumb = null;
+
+  Urls({
+    this.thumb
+  });
+
+  factory Urls.fromJson(Map<String, dynamic> json){
+    return Urls(
+      thumb: json['thumb']
+    );
+  }
+}
+
+class User {
+  String? username = null;
+
+  User({
+    this.username
+  });
+
+  factory User.fromJson(Map<String, dynamic> json){
+    return User(
+        username: json['thumb']
     );
   }
 }
