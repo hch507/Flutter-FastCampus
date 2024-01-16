@@ -17,8 +17,7 @@ class TodoController extends GetxController {
   @override
   void onInit() async {
     final getTodoResult = await getTodoListUseCase.excute();
-
-       todoList.addAll(getTodoResult);
+    todoList.addAll(getTodoResult);
     super.onInit();
   }
   void changeTodoStatus(Todo todo) {
@@ -35,7 +34,7 @@ class TodoController extends GetxController {
     updateTodo(todo);
   }
 
-  void addTodo(WriteTodoResult result) async {
+  void addTodo(WriteTodoResult result){
     if (result != null) {
       final newTodo = Todo(
           id: DateTime.now().millisecondsSinceEpoch,
@@ -43,11 +42,10 @@ class TodoController extends GetxController {
           dueDate: result.dateTime);
       todoList.add(newTodo);
       addTodoUseCase.excute(newTodo);
-
     }
   }
 
-  void editTodo(Todo todo, WriteTodoResult result) {
+  void editTodo(Todo todo, WriteTodoResult result){
     todo.title = result.text;
     todo.dueDate = result.dateTime;
     updateTodo(todo);
@@ -57,13 +55,8 @@ class TodoController extends GetxController {
     removeTodoUseCase.excute(todo.id);
     todoList.refresh();
   }
-  void updateTodo(Todo todo) async {
-
-    try {
-      await updateTodoUseCase.excute(todo);
-    } catch (e) {
-      print("Error during updateTodoUseCase.excute: $e");
-    }
+  void updateTodo(Todo todo) {
+    updateTodoUseCase.excute(todo);
     notify(todo);
   }
 

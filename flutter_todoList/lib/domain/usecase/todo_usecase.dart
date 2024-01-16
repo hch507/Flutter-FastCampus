@@ -11,8 +11,7 @@ class AddTodoUseCase implements Usecase<void, Todo>{
 
   @override
   Future<void> excute(Todo todo) {
-    _todoRepository.addTodo(todo);
-    throw UnimplementedError();
+    return _todoRepository.addTodo(todo);
   }
 
   
@@ -30,9 +29,8 @@ class GetTodoListUseCase implements Usecase<List<Todo>, void>{
 class UpdateTodoUseCase implements Usecase<void, Todo>{
   final TodoRepository _todoRepository = TodoRepositoryImpl();
   @override
-  Future<void> excute(Todo todo) async {
-    await _todoRepository.updateTodo(todo);
-    throw UnimplementedError();
+  Future<void> excute(Todo todo) {
+    return _todoRepository.updateTodo(todo);
   }
 
 }
@@ -41,8 +39,6 @@ class RemoveTodoUseCase implements Usecase<void, int>{
   final TodoRepository _todoRepository = TodoRepositoryImpl();
   @override
   Future<void> excute(int id) {
-    _todoRepository.removeTodo(id);
-    throw UnimplementedError();
+    return _todoRepository.removeTodo(id);
   }
-
 }
