@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import '../data/service/service.dart';
 
 class InputController extends GetxController{
-  //var photo =<Photo>[].obs;
+  var photo =<Result>[].obs;
   RestClient? client;
   InputController() {
     Dio dio = Dio();
@@ -20,14 +20,16 @@ class InputController extends GetxController{
     final resp = await client?.getPhots(searchTerm, "x7eS2UmTg22vNWTxBH3FVGWL2oKo65ETcrsqT9KZa94");
     if (resp != null) {
       for (var result in resp.result) {
-        print("ID: ${result.user.username}");
-        print("CreatedAt: ${result.createAt}");
-        print("Likes: ${result.like}");
-        print("Likes: ${result.urls.thumb}");
+        photo.add(result);
+        // print("ID: ${result.user.username}");
+        // print("CreatedAt: ${result.createAt}");
+        // print("Likes: ${result.like}");
+        // print("Likes: ${result.urls.thumb}");
         // ... 필요한 만큼 추가
       }
     } else {
       print("Response is null");
     }
+    print(photo);
   }
 }

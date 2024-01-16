@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_todolist/data/memory/todo_data_holder.dart';
-import 'package:flutter_todolist/data/memory/vo/vo_todo.dart';
-import 'package:flutter_todolist/screen/main/tab/todo/w_todo_status.dart';
-import 'package:flutter_todolist/screen/main/write/d_write_todo.dart';
-import 'package:flutter_todolist/screen/main/write/vo_write_to_result.dart';
+import 'package:flutter_todolist/data/entity/vo_todo.dart';
+import 'package:flutter_todolist/presentation/controller/todo_data_holder.dart';
+import 'package:flutter_todolist/presentation/main/tab/todo/w_todo_status.dart';
+import 'package:flutter_todolist/presentation/main/write/d_write_todo.dart';
+import 'package:flutter_todolist/presentation/main/write/vo_write_to_result.dart';
 import 'package:intl/intl.dart';
-import 'package:velocity_x/velocity_x.dart';
+
 
 class TodoItem extends StatelessWidget with TodoDataProvider{
   final Todo todo;

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_todolist/data/memory/todo_data_holder.dart';
-import 'package:flutter_todolist/data/memory/todo_status.dart';
-import 'package:flutter_todolist/data/memory/vo/vo_todo.dart';
-import 'package:flutter_todolist/screen/main/widget/w_tap.dart';
+import 'package:flutter_todolist/data/entity/todo_status.dart';
+import 'package:flutter_todolist/data/entity/vo_todo.dart';
+
+
+import 'package:flutter_todolist/presentation/controller/todo_data_holder.dart';
+import 'package:flutter_todolist/presentation/widget/w_tap.dart';
+
 
 class TodoStatusWidget extends StatelessWidget with TodoDataProvider {
   final Todo todo;

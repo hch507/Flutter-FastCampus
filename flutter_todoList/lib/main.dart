@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todolist/data/local/local_db.dart';
-import 'package:flutter_todolist/data/memory/todo_data_holder.dart';
-import 'package:flutter_todolist/screen/s_main.dart';
+import 'package:flutter_todolist/presentation/controller/todo_data_holder.dart';
+
+import 'package:flutter_todolist/presentation/s_main.dart';
+
+
 import 'package:get/get.dart';
 
 void main() async{
@@ -21,7 +24,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState(){
-    Get.put(TodoDataHolder());
+    Get.put(TodoController());
   }
   @override
   void dispose(){

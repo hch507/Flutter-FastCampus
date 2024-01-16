@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_todolist/data/memory/todo_data_holder.dart';
-import 'package:flutter_todolist/data/memory/vo/vo_todo.dart';
-import 'package:flutter_todolist/screen/main/tab/search/w_search_fragment.dart';
-import 'package:flutter_todolist/screen/main/tab/todo/w_todo_fragment.dart';
-import 'package:flutter_todolist/screen/main/write/d_write_todo.dart';
-import 'package:flutter_todolist/screen/main/write/vo_write_to_result.dart';
+import 'package:flutter_todolist/presentation/controller/todo_data_holder.dart';
+import 'package:flutter_todolist/presentation/main/tab/search/w_search_fragment.dart';
+import 'package:flutter_todolist/presentation/main/tab/todo/w_todo_fragment.dart';
+import 'package:flutter_todolist/presentation/main/write/d_write_todo.dart';
+import 'package:flutter_todolist/presentation/main/write/vo_write_to_result.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

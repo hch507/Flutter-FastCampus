@@ -1,8 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../model/vo_photo.dart';
+
 class ItemCard extends StatelessWidget {
-  const ItemCard({super.key});
+  Result result;
+
+  ItemCard({required this.result, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,17 +14,36 @@ class ItemCard extends StatelessWidget {
       elevation: 2,
       child: Column(
         children: [
-          Container(
+          SizedBox(
+            height: 10,
+          ),
+         Container(
             height: 75,
             width: 100,
-            child: Image.network('http',fit: BoxFit.fill,),
+            child: Image.network(
+              result.urls.thumb!,
+              fit: BoxFit.fill,
+            ),
           ),
-          SizedBox(height: 20,),
-          Text("authoe : "),
-          SizedBox(height: 5,),
-          Text("Create : "),
-          SizedBox(height: 5,),
-          Text("like : "),
+          Expanded(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 20,
+                ),
+                Text("authoe : ${result.user.username} "),
+                SizedBox(
+                  height: 5,
+                ),
+                Text("Create : ${result.createAt}",
+                    overflow: TextOverflow.ellipsis),
+                SizedBox(
+                  height: 5,
+                ),
+                Text("like : ${result.like}"),
+              ],
+            ),
+          ),
         ],
       ),
     );
