@@ -9,7 +9,7 @@ import '../data/service/service.dart';
 
 class InputController extends GetxController{
   var photo =<Result>[].obs;
-  RestClient? client;
+  NaverRestClient? client;
   InputController() {
     Dio dio = Dio();
     this.client = RestClient(dio);

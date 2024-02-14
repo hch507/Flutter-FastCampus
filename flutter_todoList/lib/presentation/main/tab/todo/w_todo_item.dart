@@ -6,8 +6,7 @@ import 'package:flutter_todolist/presentation/main/write/d_write_todo.dart';
 import 'package:flutter_todolist/presentation/main/write/vo_write_to_result.dart';
 import 'package:intl/intl.dart';
 
-
-class TodoItem extends StatelessWidget with TodoDataProvider{
+class TodoItem extends StatelessWidget with TodoDataProvider {
   final Todo todo;
 
   TodoItem(this.todo, {super.key});
@@ -24,7 +23,6 @@ class TodoItem extends StatelessWidget with TodoDataProvider{
             borderRadius: BorderRadius.circular(10),
             color: Colors.white,
           ),
-
           child: Column(
             children: [
               Text(
@@ -33,19 +31,29 @@ class TodoItem extends StatelessWidget with TodoDataProvider{
               Row(
                 children: [
                   TodoStatusWidget(todo),
-                  Expanded(child: Text(todo.title,style: TextStyle(fontSize: 20)),),
-                  IconButton(onPressed: () async {
-                    WriteTodoResult result= await
-                    showDialog(context: context, builder: (context){
-                      return WriteTodoDialog(todoForEdit: todo,);
-                    });
-                    todoData.editTodo(todo, result);
-                  }, icon: Icon(Icons.edit))
+                  Expanded(
+                    child: Text(
+                      todo.title,
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                  IconButton(
+                      onPressed: () async {
+                        WriteTodoResult result = await showDialog(
+                          context: context,
+                          builder: (context) {
+                            return WriteTodoDialog(
+                              todoForEdit: todo,
+                            );
+                          },
+                        );
+                        todoData.editTodo(todo, result);
+                      },
+                      icon: Icon(Icons.edit))
                 ],
               )
             ],
           )),
     );
   }
-
 }
