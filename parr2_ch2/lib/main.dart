@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parr2_ch2/ch2-2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
           appBar: AppBar(
             title: Text("Witdget 상하로 배치하기"),
           ),
-          body: ScrollBody(),
+          body: FlexBody(),
         ));
   }
 }
