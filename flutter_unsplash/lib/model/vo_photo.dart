@@ -8,14 +8,16 @@ class Result {
   Result({
     this.createAt,
     this.like,
-    this.urls,
-    this.user
+    required this.urls,
+    required this.user
   });
 
   factory Result.fromJson(Map<String, dynamic> json) {
     return Result(
       createAt: json['created_at'],
       like: json['likes'],
+      urls: Urls.fromJson(json['urls']),
+      user: User.fromJson(json['user']),
 
     );
   }
@@ -30,7 +32,7 @@ class Urls {
 
   factory Urls.fromJson(Map<String, dynamic> json){
     return Urls(
-      thumb: json['thumb']
+        thumb: json['thumb']
     );
   }
 }
@@ -47,4 +49,17 @@ class User {
         username: json['thumb']
     );
   }
+}
+
+class Photo {
+  final List<Result> result;
+
+  Photo({
+    required this.result
+  });
+
+  factory Photo.fromJson(Map<String, dynamic> json){
+    return Photo(result: json['results']);
+  }
+
 }
