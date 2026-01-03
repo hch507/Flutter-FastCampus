@@ -21,7 +21,7 @@ class _RestClient implements RestClient {
   String? baseUrl;
 
   @override
-  Future<List<int>> getPhots(
+  Future<Photo> getPhots(
     String query,
     String clientId,
   ) async {
@@ -33,14 +33,14 @@ class _RestClient implements RestClient {
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result =
-        await _dio.fetch<List<dynamic>>(_setStreamType<List<int>>(Options(
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<Photo>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              'search/photos',
+              '/search/photos',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -49,7 +49,7 @@ class _RestClient implements RestClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = _result.data!.cast<int>();
+    final value = Photo.fromJson(_result.data!);
     return value;
   }
 

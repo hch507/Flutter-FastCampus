@@ -1,5 +1,6 @@
-import 'package:flutter_todolist/data/local/collection/todo_isar.dart';
-import 'package:flutter_todolist/data/memory/todo_status.dart';
+import 'package:flutter_todolist/data/entity/todo_isar.dart';
+import 'package:flutter_todolist/data/entity/todo_status.dart';
+
 
 class Todo {
 

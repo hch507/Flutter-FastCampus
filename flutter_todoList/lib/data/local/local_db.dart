@@ -1,6 +1,6 @@
 
-import 'package:flutter_todolist/data/local/collection/todo_isar.dart';
-import 'package:flutter_todolist/data/memory/vo/vo_todo.dart';
+import 'package:flutter_todolist/data/entity/todo_isar.dart';
+import 'package:flutter_todolist/data/entity/vo_todo.dart';
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
 class Localdb{
@@ -11,7 +11,6 @@ class Localdb{
   static Localdb instance = Localdb._();
   Future<List<Todo>> getDataList() async{
     final document = await _isar.todoIsars.filter().idGreaterThan(0).findAll();
-
     return document.map((e) => Todo.fromDB(e)).toList();
   }
   static Future<void> init() async {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_todolist/data/memory/todo_data_holder.dart';
-import 'package:flutter_todolist/screen/main/tab/todo/w_todo_item.dart';
+
+import 'package:flutter_todolist/presentation/controller/todo_data_holder.dart';
+import 'package:flutter_todolist/presentation/main/tab/todo/w_todo_item.dart';
 import 'package:get/get.dart';
 
 class TodoList extends StatelessWidget with TodoDataProvider {

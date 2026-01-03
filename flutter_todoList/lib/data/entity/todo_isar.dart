@@ -1,4 +1,5 @@
-import 'package:flutter_todolist/data/memory/todo_status.dart';
+import 'package:flutter_todolist/data/entity/todo_status.dart';
+
 import 'package:isar/isar.dart';
 
 part 'todo_isar.g.dart';

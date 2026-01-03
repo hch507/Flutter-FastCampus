@@ -75,8 +75,9 @@ class _SearchFragmentState extends State<SearchFragment> {
               height: 20,
             ),
             ElevatedButton(
-              // onPressed: () { Get.to(UnsplashFragment(),arguments: inputController.text);},
-              onPressed: () {controller.fetcchData(inputController.text);},
+              // onPressed: () { Get.to(UnsplashFragment());},
+              onPressed: () { Get.to(UnsplashFragment(),arguments: inputController.text);},
+              // onPressed: () {controller.fetcchData(inputController.text);},
               child: Text("검색"),
             )
           ],

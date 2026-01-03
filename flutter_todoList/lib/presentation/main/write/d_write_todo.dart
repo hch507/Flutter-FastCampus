@@ -1,8 +1,9 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_todolist/data/memory/vo/vo_todo.dart';
-import 'package:flutter_todolist/screen/main/write/vo_write_to_result.dart';
+import 'package:flutter_todolist/data/entity/vo_todo.dart';
+import 'package:flutter_todolist/presentation/main/write/vo_write_to_result.dart';
+
 import 'package:intl/intl.dart';
 
 class WriteTodoDialog extends StatefulWidget {
